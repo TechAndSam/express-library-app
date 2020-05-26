@@ -32,7 +32,7 @@ app.use('/catalog', catalogRouter);  // Add catalog routes to middleware chain.
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://adinoyi:adinoyi@cluster0-i8uis.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || 'mongodb+srv://adinoyi:adinoyi@cluster0-i8uis.mongodb.net/local_library?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
